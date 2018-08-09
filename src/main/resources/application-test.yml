@@ -1,0 +1,27 @@
+server:
+  port: 8090
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    #url: jdbc:mysql://localhost/testdb?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://172.17.171.24/testdb?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+  data:
+    elasticsearch:
+      #cluster-nodes: 127.0.0.1:9300
+      cluster-nodes: 172.17.171.24:9300
+
+kafka:
+  producer:
+    servers: 172.17.171.24:9092
+    event-topic: test
+    user-topic: test
+    #servers: 127.0.0.1:9092
+    #event-topic: test
+    #user-topic: test
+    retries: 0
+    batch.size: 4096
+    linger: 1
+    buffer.memory: 40960
